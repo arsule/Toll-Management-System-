@@ -2,7 +2,7 @@ using namespace std;
 #include<iostream>
 #include<string.h>
 
-class vehical
+class vehical          // base class
 {
 	int basicToll;
 	int people;
@@ -11,7 +11,7 @@ class vehical
 	
 	
 	public:
-		vehical()
+		vehical()						//default Constructor
 		{
 			cout << "\nVehical default constructor called.";
 			this->basicToll = 20;
@@ -20,7 +20,7 @@ class vehical
 			
 		
 		}
-		vehical(int bt, int p, int xc)
+		vehical(int bt, int p, int xc) 				// parametrized Constructor
 		{
 			cout << "\nVehical parameterised constructor called.";
 			this->basicToll = bt;
@@ -29,42 +29,46 @@ class vehical
 			
 		
 		}
-	void setBasicToll(int i)
+	
+	void setBasicToll(int i)					// Setters
 	{
 		this->basicToll = i;
 	}
-	void setPeople(int p)
+	void setPeople(int p)						// Setters
 	{
 		this->people = p;
 	}
 	
-	void setExtraCharges(int xc)
+	void setExtraCharges(int xc)					// Setters
 	{
 		this->extraCharges = xc;
 	}
-	int getExtraCharges()
+	
+						
+	int getExtraCharges()				// getter
 	{
 		return this->extraCharges;
 	}
 	
-	int getBasicToll()
+	int getBasicToll()				// getter
 	{
 		return this->basicToll;
 	}
-	int getPeople()
+	int getPeople()					// getter
 	{
 		return this->people;
 	}
 
-
-	virtual void display()
+	
+	
+	virtual void display()						// virtual function
 	{
 	
 		cout << "\n Which includes basic toll  : " << this->basicToll;
 		cout << "\n Extra charge :" << this->extraCharges;
 		
 	}
-	virtual int CalToll()
+	virtual int CalToll()					// virtual function
 	{
 		return this->basicToll;
 	}
@@ -72,30 +76,30 @@ class vehical
 };// vehical class ends here
 
 
-struct twoWheeler :public vehical
+class twoWheeler :public vehical 		// derived class
 {
 		
 	
 public:
-	twoWheeler() : vehical()
+	twoWheeler() : vehical() 			//default Constructor    
 	{
 		cout << "\n Two wheeler default constructor called.";
 		
 		
 	}
-	twoWheeler(int bt, int p,   int xc ) : vehical(bt, p, xc)
+	twoWheeler(int bt, int p,   int xc ) : vehical(bt, p, xc)				// parametrized Constructor
 	{
 		cout << "\n Two wheeler parameterised constructor called.";
 
 		
 	}
 	
-	void display()
+	void display()								// overriden function
 	{
 		vehical::display();
 		cout << "\n Two wheeler display called." ;
 	}
-	int CalToll()
+	int CalToll()								// overriden function
 	{
 		int toll;
 		int p = this->getPeople();
@@ -114,30 +118,30 @@ public:
 	}
 };// class Two Wheeler end here
 
-struct threeWheeler :public vehical
+class threeWheeler :public vehical
 {
 		
 	
 public:
-	threeWheeler() : vehical()
+	threeWheeler() : vehical()							//default Constructor
 	{
 		cout << "\n Three wheeler default constructor called.";
 	
 		
 	}
-	threeWheeler(int bt, int p,  int xc ) : vehical(bt, p,xc)
+	threeWheeler(int bt, int p,  int xc ) : vehical(bt, p,xc)			// parametrized Constructor
 	{
 		cout << "\n Three wheeler parameterised constructor called.";
 
 		
 	}
 	
-	void display()
+	void display()							// overriden function
 	{
 		vehical::display();
 		cout << "\n Three wheeler display called." ;
 	}
-	int CalToll()
+	int CalToll()							// overriden function
 	{
 		int toll;
 		int p = this->getPeople();
@@ -156,30 +160,30 @@ public:
 	}
 };// class Three Wheeler end here
 
-struct fourWheeler :public vehical
+class fourWheeler :public vehical
 {
 	
 	
 public:
-	fourWheeler() : vehical()
+	fourWheeler() : vehical()				//default Constructor
 	{
 		cout << "\n Three wheeler default constructor called.";
 		
 		
 	}
-	fourWheeler(int bt, int p,  int xc ) : vehical(bt, p, xc)
+	fourWheeler(int bt, int p,  int xc ) : vehical(bt, p, xc)			// parametrized Constructor
 	{
 		cout << "\n Three wheeler parameterised constructor called.";
 
 		
 	}
 	
-	void display()
+	void display()								// overriden function
 	{
 		vehical::display();
 		cout << "\n four wheeler display called." ;
 	}
-	int CalToll()
+	int CalToll()									// overriden function
 	{
 		int toll ;
 		
@@ -199,29 +203,29 @@ public:
 	}
 };// class four Wheeler end here
 
-struct moreThanFourWheeler :public vehical
+class moreThanFourWheeler :public vehical
 {
 
 public:
-	moreThanFourWheeler() : vehical()
+	moreThanFourWheeler() : vehical()				//default Constructor
 	{
 		cout << "\n moreThanFourWheeler default constructor called.";
 		
 		
 	}
-	moreThanFourWheeler(int bt, int p,  int xc ) : vehical(bt, p, xc)
+	moreThanFourWheeler(int bt, int p,  int xc ) : vehical(bt, p, xc)			// parametrized Constructor
 	{
 		cout << "\n moreThanFourWheeler parameterised constructor called.";
 
 		
 	}
 
-	void display()
+	void display()									// overriden function
 	{
 		vehical::display();
 		cout << "\n more than four wheeler display called." ;
 	}
-	int CalToll()
+	int CalToll()									// overriden function
 	{
 		int toll;
 		int p = this->getPeople();
